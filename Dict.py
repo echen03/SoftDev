@@ -4,4 +4,6 @@ import random
 
 def select():
     print(random.choice(KREWES[random.choice(list(KREWES))]))
+
+select()
     

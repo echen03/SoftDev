@@ -21,7 +21,7 @@ def randomJob(dictOfJobs):
     x = 0;
     while ((dictOfJobs[keys[x]] * 100) < randomperct):
         randomperct = randomperct - (dictOfJobs[keys[x]] * 100)
-        print randomperct
         x = x + 1
-
-randomJob(occupations)
+    return keys[x]
+        
+print(randomJob(occupations))

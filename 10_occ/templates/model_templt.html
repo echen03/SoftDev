@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+    {{ titl }}
+  </title>
+  {{ head }}
+  <br>Mr. Mylky
+  <br>Coby Sontag, Ethan Chen
+</head>
+<body>
+  <table>
+    {% for key in collection %}
+    <tr>
+      <td>
+        <h1>{{key}}</h1>
+      </td>
+      <td>
+        <h2>{{ collection[key] }}</h2>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+</body>
+</html>

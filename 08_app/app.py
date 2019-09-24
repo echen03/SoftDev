@@ -9,12 +9,12 @@ def hello_world():
 
 @app.route("/sky")
 def hello_sky():
-    print(__sky__)
+    print(__name__)
     return "clouds"
 
 @app.route("/sea")
 def hello_sea():
-    print(__sea__)
+    print(__name__)
     return "water"
 
 if __name__ == "__main__":

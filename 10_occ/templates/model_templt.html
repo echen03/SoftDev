@@ -2,24 +2,30 @@
 <html>
 <head>
   <title>
-    {{ titl }}
+    Random Occupation
   </title>
-  {{ head }}
+  <center>
+  <br>SoftDev
   <br>Mr. Mylky
   <br>Coby Sontag, Ethan Chen
+  <br>Period 2
+  <br></br>
 </head>
 <body>
-  <table>
-    {% for key in collection %}
-    <tr>
-      <td>
-        <h1>{{key}}</h1>
-      </td>
-      <td>
-        <h2>{{ collection[key] }}</h2>
-      </td>
-    </tr>
-    {% endfor %}
-  </table>
+    <b>Randomly selected job: {{randjob}}</b>
+    <br></br>
+    <table>
+     <tr>
+       <td>Job Class</td>
+       <td>Percentage</td>
+     </tr>
+     {% for key in collection %}
+       <tr>
+         <td>{{ key }}</td>
+         <td>{{ collection[key] }}</td>
+       </tr>
+     {% endfor %}
+   </table>
 </body>
+</center>
 </html>

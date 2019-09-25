@@ -1,49 +1,48 @@
 from flask import Flask, render_template
 import random
 
-fn = '190913f_data/occupations.csv'
+fn = 'occupations.csv'
 fileR = open(fn, 'r')
 
-jobs = fileR.readlines()
-occupations = dict()
-x=0
 
+dummy = fileR.readline() #get rid of the first line: "Job Class, Percentage"
+jobs = fileR.readlines() #creates an list of every single line
+occupations = dict()     #creates a dictionary
+
+#adds keys into occupations
 for job in jobs:
-    words = job.split(',')
-    percentage = words.pop(len(words) - 1)
-    #delimiter = ','
-    if x>0:
-        occupations[','.join(words)] = float(percentage)
-    else:
-        occupations[','.join(words)] = percentage
-    x=x+1
+    words = job.split(',') #do not have to worry about multiple commas
+    percentage = words.pop(len(words) - 1) #the value after the comma is the percentage
+    occupations[','.join(words)] = float(percentage)
 
+#takes a random occupation from the dictionary based on weights
 def randomJob(dictOfJobs):
     perct = dictOfJobs['Total'] * 100
     randomperct = random.random() * perct
-    keys = dictOfJobs.keys()
-    x = 0;
+    keys = list(dictOfJobs.keys()) #gets a list of the keys in order to return to it
+    x = 0; #index of the key that will be returned
+    #will only stop iterating when the randomperct is in the range of the occupation weight
     while ((dictOfJobs[keys[x]] * 100) < randomperct):
+        #subtracts the weight from the randomperct when it is not in range
         randomperct = randomperct - (dictOfJobs[keys[x]] * 100)
         x = x + 1
     return keys[x]
-
-#print(randomJob(occupations))
 
 
 app = Flask(__name__) #create instance of class Flask
 
 @app.route('/') #assign following fxn to run when run route requested
-def hello_word():
+def hello_world():
     print(__name__) #where will this go?
-    return "Default"
+    return "visit occupyflaskst"
 
 @app.route("/occupyflaskst")
-def protest():
+def getjobs():
     return render_template('model_templt.html',
-                            titl="Occupation List",
                             collection=occupations,
-                            head="Returns random occupation from the table below")
+                            randjob = randomJob(occupations)
+                            )
+
 if __name__ == "__main__":
     app.debug = True
     app.run()

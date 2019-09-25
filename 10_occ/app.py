@@ -1,3 +1,8 @@
+#Ethan Chen and Cobe Sontag
+#SoftDev1 pd2
+#K10 -- Jinja Tuning
+#2019-09-24
+
 from flask import Flask, render_template
 import random
 

@@ -1,7 +1,7 @@
-#Clyde "Thluffy" Sinclair
-#SoftDev1 pd0
-#demo -- My First Flask App
-#2019-09-17t
+#Ethan Chen and David Wang
+#SoftDev1 pd2
+#12_form flask app
+#2019-09-26t
 
 from flask import Flask, render_template, request
 app = Flask(__name__) #create instance of class Flask

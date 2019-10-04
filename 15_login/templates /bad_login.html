@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bad Login</title>
+    </head>
+    <body>
+        {% if 'user' in errors %}
+        BAD USERNAME
+        <br>
+        {% endif %}
+        {% if 'pass' in errors %}
+        BAD PASSWORD
+        <br>
+        {% endif %}
+        <form method="POST">
+            <input type="submit" value="LOGOUT"></input>
+        </form>
+    </body>
+</html>

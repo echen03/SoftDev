@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}
+BAD LOGIN
+{% endblock %}
+
+{% block content %}
+        {% if 'user' in errors %}
+        BAD USERNAME
+        <br>
+        {% endif %}
+        {% if 'pass' in errors %}
+        BAD PASSWORD
+        <br>
+        {% endif %}
+        <form method="POST">
+            <input type="submit" value="TRY AGAIN"></input>
+        </form>
+{% endblock %}

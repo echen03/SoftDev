@@ -1,7 +1,9 @@
-#Ethan Chen and William Cao
-#SoftDev1 pd2
-#15_login flask app
-#2019-10-03t
+# Ethan Chen William Cao (Team Ethilliam)
+# SoftDev1 pd2
+# K16 -- Oh yes, perhaps I do...
+# 2019-10-07
+
+import os
 
 from flask import Flask
 from flask import session
@@ -9,72 +11,79 @@ from flask import render_template
 from flask import redirect
 from flask import url_for
 from flask import request
-app = Flask(__name__)
+from flask import flash
 
-#returns an array of which username and password is incorrect
-def check_creds(username, password):
-    error = []
-    if (password != 'pass'):
-        error.append('pass')
-    if (username != 'user'):
-        error.append('user')
-    return error
+
+app = Flask(__name__)
+# Need SECRET KEY for session
+# In future, we need to save to .env file
+secret = os.urandom(12)
+print("Secret key: {}".format(secret))
+app.secret_key = secret
+
+
+def credentials_middleware(username, password):
+    """
+    Will attempt to login the user with the given credentials.
+    Returns view to welcome page if credentials are correct; flash errors otherwise
+    :param username:
+    :param password:
+    """
+    print("entering middleware with username: {} password: {}".format(username, password))
+
+    errors = []
+    if username != 'user':
+        errors.append("Incorrect Username")
+    if password != 'pass':
+        errors.append("Incorrect Password")
+
+    if len(errors):
+        for error in errors:
+            flash(error)
+        return render_template("login.html")
+    else:
+        session['username'] = username
+        print("\n\nCurrent session: {}".format(str(session)))
+        return render_template("welcome.html")
+
 
 @app.route("/")
 def home():
-    #if there is no session for username then go to the login page
-    if (session.get('username') == None):
+    print("\n\nUser has entered website")
+
+    if session.get('username') is None:
+        # User has not logged in before
+        print("User needs to login because user has not logged in before")
         return redirect(url_for("login"))
-    #if there already is a session, then check if they logged in correctly.
-    #if they did then welcome them, if they didnt then redirect them to the bad login page
     else:
-        cred_errors = check_creds(session.get('username'),session.get('password'))
-        if (len(cred_errors) == 0):
-            return redirect(url_for("welcome"))
-        else:
-            return redirect(url_for("bad_login"))
+        print("User has already logged in")
+        print("Session data username: {}".format(session['username']))
+        return render_template("welcome.html")
 
-@app.route('/login', methods = ['GET'])
+
+@app.route('/login', methods=['GET'])
 def login():
-    #if they didnt login already, then bring them to the login page
-    if (len(request.args) == 0):
-        return render_template("login.html")
-    #after they press the login button then check to see if they logged in correctly
-    #if they did then bring them to the welcome page and if they didnt then bring them to a bad login page
+    print("\n\nUser entered login view")
+
+    if request.method == 'GET' and len(request.args) != 0:
+        username = request.args["username"]
+        password = request.args["password"]
+        print("User is logging in with username: {} password: {}".format(username, password))
+        return credentials_middleware(username, password)
     else:
-        session['username'] = request.args['username']
-        session['password'] = request.args['password']
-        cred_errors = check_creds(session.get('username'),session.get('password'))
-        if (len(cred_errors) == 0):
-            return redirect(url_for("welcome"))
-        else:
-            return redirect(url_for("bad_login"))
+        print("User needs to fill out login information")
+        return render_template("login.html")
 
-#welcomes them, if they press the logout button (we know when the post method gets activated)
-#then redirect them to the logout page
-@app.route("/welcome", methods = ['GET', 'POST'])
-def welcome():
-    if request.method == 'POST':
-        return redirect(url_for("logout"))
-    return render_template('welcome.html')
 
-#removes the sessions, brings them back to login
-@app.route("/logout")
+@app.route('/logout', methods=['GET'])
 def logout():
+    print("\n\nRemoving username from session (logout)")
     session.pop('username')
-    session.pop('password')
+    print("Current session: {}".format(session))
+    # Don't redirect back to root since we know the user is not logged in
     return redirect(url_for("login"))
 
-#uses the check_creds methods to see what the errors were and prints accordingly,
-#when they press the try again button (indicated by the post method) then redirect them to the login page
-@app.route('/bad_login', methods = ['GET', 'POST'])
-def bad_login():
-    if request.method == 'POST':
-        return redirect(url_for("login"))
-    return render_template('bad_login.html', errors = check_creds(session.get('username'),session.get('password')))
 
-#need secret key in order to get the code to work
-if (__name__ == "__main__"):
-    app.secret_key = 'super secret key'
+if __name__ == "__main__":
     app.debug = True
     app.run()

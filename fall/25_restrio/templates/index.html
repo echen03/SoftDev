@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Loripsum API</title>
+  </head>
+  <body>
+    <form method="get">
+           <input type="text" name="country">
+          <input type = "submit" value = "Create Account">
+    </form>
+    {{ name }} <br>
+    {{ currency}} <br>
+    {{pop}}
+    {% for language in languages %}
+    {{language}},
+    {% endfor %}
+    <!--
+    {% for i in range(countries | count) %}
+    {{ countries[i] }} , {{ alpha2code[i] }} , {{ alpha3code[i] }}<br>
+    {% endfor %}
+    -->
+  </body>
+</html>

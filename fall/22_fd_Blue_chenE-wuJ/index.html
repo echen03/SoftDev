@@ -1,0 +1,203 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foundation for Starters</title>
+    <link rel="stylesheet" href="css/foundation.css">
+    <link rel="stylesheet" href="css/app.css">
+  </head>
+  <body>
+    <div class="grid-container">
+      <div class="grid-x grid-padding-x">
+        <div class="large-12 cell">
+          <h1>Welcome to Foundation</h1>
+          <h7>by Ethan Chen and Jionghao Wu of Team Blue</h7>
+        </div>
+      </div>
+
+      <div class="grid-x grid-padding-x">
+        <div class="large-12 cell">
+          <div class="callout">
+            <h3>We&rsquo;re stoked you want to try Foundation! </h3>
+            <p>One of the biggest feature of this framework is its XY Grid, which makes styling your website extremely simple and easy to read.</p>
+            <p>It is also able to alter between small, medium, and large screens with specifications (mobile-- small, laptop--large, etc.)</p>
+            <div class="grid-x grid-padding-x">
+              <div class="large-12 medium-12 cell">
+                <h5>It is under a 12 cell system:</h5>
+                <!-- Grid Example -->
+                <div class="grid-x grid-padding-x">
+                  <div class="large-12 cell">
+                    <div class="primary callout">
+                      <p><strong>large-12 cell</strong></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="grid-x grid-padding-x">
+                  <div class="large-6 medium-6 cell">
+                    <div class="primary callout">
+                      <p>large-6 cell</p>
+                    </div>
+                  </div>
+                  <div class="large-6 medium-6 cell">
+                    <div class="primary callout">
+                      <p>large-6 cell</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="grid-x grid-padding-x">
+                  <div class="large-4 medium-4 small-4 cell">
+                    <div class="primary callout">
+                      <p>large-4 cell</p>
+                    </div>
+                  </div>
+                  <div class="large-4 medium-4 small-4 cell">
+                    <div class="primary callout">
+                      <p>large-4 cell</p>
+                    </div>
+                  </div>
+                  <div class="large-4 medium-4 small-4 cell">
+                    <div class="primary callout">
+                      <p>large-4 cell</p>
+                    </div>
+                  </div>
+                </div>
+                <p> Now try to make the page smaller </p>
+                <div class="grid-x grid-padding-x">
+                  <div class="small-2 large-4 cell">
+                    <div class="primary callout">
+                      <p>small-2, large-4 cell</p>
+                    </div>
+                  </div>
+                  <div class="small-4 large-5 cell">
+                    <div class="primary callout">
+                      <p>small-4 large-5 cell</p>
+                    </div>
+                  </div>
+                  <div class="small-6 large-3 cell">
+                    <div class="primary callout">
+                      <p>small-6 large-3 cell</p>
+                    </div>
+                  </div>
+                </div>
+                <p> Did you notice the blocks changing sizes based on the size of your page?</p>
+                <p> Here is a look at the code of a large-6 cell:
+                <div class="grid-x grid-padding-x">
+                  <div class="large-6 cell">
+                    <div class="primary callout">
+                      <pre>&lt;div class="large-6 cell"&gt;</pre>
+                      <pre>  &lt;div class="primary callout"&gt;</pre>
+                      <pre>    &lt;p&gt;large-6 cell&lt;/p&gt;</pre>
+                      <pre>  &lt;/div&gt;</pre>
+                      <pre>&lt;/div&gt;</pre>
+                    </div>
+                  </div>
+                  <div class="large-6 cell">
+                    <div class="primary callout">
+                      <p>large-6 cell</p>
+                    </div>
+                  </div>
+                </div>
+                <p> Now here's what happens when you change the values after the size..
+                <div class="grid-x grid-padding-x">
+                  <div class="large-5 cell">
+                    <div class="primary callout">
+                      <pre>&lt;div class="large-5 cell"&gt;</pre>
+                      <pre>  &lt;div class="primary callout"&gt;</pre>
+                      <pre>    &lt;p&gt;large-5 cell&lt;/p&gt;</pre>
+                      <pre>  &lt;/div&gt;</pre>
+                      <pre>&lt;/div&gt;</pre>
+                    </div>
+                  </div>
+                  <div class="large-5 cell">
+                    <div class="primary callout">
+                      <p>large-5 cell</p>
+                    </div>
+                  </div>
+                </div>
+                <p>It is so easy to manipulate the columns, making it so user-friendly!
+              </div>
+            </div>
+          </div>
+          <hr />
+          <h5>Now we can look at forms:</h5>
+          <form>
+            <div class="grid-x grid-padding-x">
+              <div class="large-12 cell">
+                <label>Input Label</label>
+                <input type="text" placeholder="large-12.cell" />
+              </div>
+            </div>
+            <div class="grid-x grid-padding-x">
+              <div class="large-4 medium-4 cell">
+                <label>Input Label</label>
+                <input type="text" placeholder="large-4.cell" />
+              </div>
+              <div class="large-4 medium-4 cell">
+                <label>Input Label</label>
+                <input type="text" placeholder="large-4.cell" />
+              </div>
+              <div class="large-4 medium-4 cell">
+                <div class="grid-x">
+                  <label>Input Label</label>
+                  <div class="input-group">
+                    <input type="text" placeholder="small-9.cell" class="input-group-field" />
+                    <span class="input-group-label">.com</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p>These are pretty standard forms, however we can use the grid system to make them more attractive</p>
+            <div class="grid-x grid-padding-x">
+              <div class="large-12 cell">
+                <label>Select Box</label>
+                <select>
+                  <option value="isn't">isn't</option>
+                  <option value="this">this</option>
+                  <option value="cool">cool</option>
+                  <option value="!">!</option>
+                </select>
+              </div>
+            </div>
+            <div class="grid-x grid-padding-x">
+              <div class="large-6 medium-6 cell">
+                <label>Choose these circles</label>
+                <input type="radio"><label for="pokemonBlue">circle 1</label>
+                <input type="radio"><label for="pokemonBlue">circle 2</label>
+              </div>
+              <div class="large-6 medium-6 cell">
+                <label>or check these boxes</label>
+                <input id="checkbox1" type="checkbox"><label for="checkbox1">box 1</label>
+                <input id="checkbox2" type="checkbox"><label for="checkbox2">box 2</label>
+              </div>
+            </div>
+            <div class="grid-x grid-padding-x">
+              <div class="large-12 cell">
+                <label>Textarea Label</label>
+                <textarea placeholder="small-12.cell"></textarea>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div class="large-12 medium-6 cell">
+          <h5>Look at these buttons:</h5>
+          <p><a href="#" class="button">Simple Button</a>
+          <a href="#" class="success button">Success Btn</a>
+          <a href="#" class="alert button">Alert Btn</a>
+          <a href="#" class="secondary button">Secondary Btn</a></p>
+          <div class="callout">
+            <p>This was a very simple tutorial about the unique grid system of Foundation. If you want to learn more about other features. Then press the button below!</p>
+            <a href="http://foundation.zurb.com/sites/docs/" class="small button">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/what-input.js"></script>
+    <script src="js/vendor/foundation.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

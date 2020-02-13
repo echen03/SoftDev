@@ -7,12 +7,13 @@ const canvas = document.getElementById('playground');
 const context = canvas.getContext('2d');
 const stopButton = document.getElementById('stop');
 const animateButton = document.getElementById('animate');
+const movieButton = document.getElementById('movie');
 
 var i = 0;
 var isDrawing = false;
 var id;
 
-const drawCircle = (radius) => {
+var drawCircle = function(radius) {
     context.fillStyle = "blue";
     context.beginPath();
     context.arc(300, 300, radius, 0, 2 * Math.PI);
@@ -20,7 +21,7 @@ const drawCircle = (radius) => {
     context.closePath();
 };
 
-const draw = () => {
+var draw = function() {
     i++;
     let radius = i % 600;
     context.clearRect(0, 0, 600, 600);
@@ -32,12 +33,12 @@ const draw = () => {
     id = window.requestAnimationFrame(draw);
 };
 
-const stop = () => {
+var stop = function() {
     window.cancelAnimationFrame(id);
     isDrawing = false;
 };
 
-const start = () => {
+var start = function() {
     if(!isDrawing){
         id = window.requestAnimationFrame(draw);
         isDrawing = true;

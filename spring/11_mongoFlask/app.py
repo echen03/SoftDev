@@ -1,13 +1,18 @@
-#Team Eggcellent: Tiffany Cao & Ethan Chen
+#Team Gray: Ethan Chen
 #SoftDev2 pd1
-#K10: Import/Export Bank
-#2020-02-29
+#K11
+#2020-03-05
 
+import os
+
+from flask import Flask, render_template, request
 from bson.json_util import loads
 from pymongo import MongoClient
 
+app = Flask(__name__)
+
 client = MongoClient("localhost", 27017)
-db = client.eggcellent
+db = client.gray
 
 #The data bank used was the Spongebob Squarepants (SBSP) Episodes dataset from TV Maze API.
 #This file provides numerous details about every SBSP episode in all the seasons, including episode summary, airtime, airdate, and more.
@@ -94,34 +99,42 @@ def findWords(key):
 #findWords("Sandy Cheeks")
 #findWords("Squidward")
 
+@app.route("/")
+def home():
+    return render_template("index.html")
 
-print("------ Find an episode by giving a season and episode number. ------")
-season = input("Please enter a season: ")
-number = input("Please enter an episode number: ")
-while(not season.isnumeric()):  #checking for non-numbers
-  season = input("Please enter a valid number: ")
-while(not number.isnumeric()):
-  number = input("Please enter a valid number: ")
-print()
+# print("------ Find an episode by giving a season and episode number. ------")
+# season = input("Please enter a season: ")
+# number = input("Please enter an episode number: ")
+# while(not season.isnumeric()):  #checking for non-numbers
+#   season = input("Please enter a valid number: ")
+# while(not number.isnumeric()):
+#   number = input("Please enter a valid number: ")
+# print()
+#
+# findEpisode(int(season),int(number))
+#
+# print("------ Find episode(s) aired on a given date. ------")
+# year = input("Please enter a four-year between 1999 and 2020: ")
+# while(not year.isnumeric() or (int(year) > 2020) or (int(year) < 1999)):  #checking for valid years
+#   year = input("Please enter a valid four-digit year: ")
+# month = input("Please enter a month (with a 0 in front of single-digit months): ")
+# while(not(len(month) == 2) or not month.isnumeric() or int(month) > 12 or int(month) < 1):  #checking for valid month (with the 0)
+#   month = input("Please enter a valid month (with a 0 in front of single-digit months): ")
+# day = input("Please enter a day (with a 0 in front of single-digit days): ")
+# while(not day.isnumeric() or not(len(day) == 2) or int(day) > 31 or int(day) < 1):  #checking for valid dates (with the 0)
+#   day = input("Please enter a valid day (between 1 and 31, and with a 0 in front of single-digit days): ")
+# print()
+#
+# onAir(year + "-" + month + "-" + day)
+#
+# print("------ Find episodes with the given key words or phrases. ------")
+# word = input("Please enter key words: ")
+# print()
+#
+# findWords(word)
 
-findEpisode(int(season),int(number))
 
-print("------ Find episode(s) aired on a given date. ------")
-year = input("Please enter a four-year between 1999 and 2020: ")
-while(not year.isnumeric() or (int(year) > 2020) or (int(year) < 1999)):  #checking for valid years
-  year = input("Please enter a valid four-digit year: ")
-month = input("Please enter a month (with a 0 in front of single-digit months): ")
-while(not(len(month) == 2) or not month.isnumeric() or int(month) > 12 or int(month) < 1):  #checking for valid month (with the 0)
-  month = input("Please enter a valid month (with a 0 in front of single-digit months): ")
-day = input("Please enter a day (with a 0 in front of single-digit days): ")
-while(not day.isnumeric() or not(len(day) == 2) or int(day) > 31 or int(day) < 1):  #checking for valid dates (with the 0)
-  day = input("Please enter a valid day (between 1 and 31, and with a 0 in front of single-digit days): ")
-print()
-
-onAir(year + "-" + month + "-" + day)
-
-print("------ Find episodes with the given key words or phrases. ------")
-word = input("Please enter key words: ")
-print()
-
-findWords(word)
+if __name__ == "__main__":
+    app.debug = True
+    app.run()

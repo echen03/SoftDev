@@ -1,0 +1,405 @@
+<!Tiffany Cao and Ethan Chen
+SoftDev1 pd1
+P03 TEDxSoftDev
+2020-3-25>
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title> LESS: CSS Preprocessor  </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  </head>
+  <body style = "background-color: #D4F4DD;">
+    <font face = "Optima">
+    <br><br>
+    <div id = header style = "text-align: center;">
+      <h1 style = "font-size: 75px; color: #5386E4;"> LESS </h1>
+      <h1> A CSS Preprocessor </h1>
+      <h5> By Team Eggcellent: Tiffany Cao and Ethan Chen </h5>
+    </div>
+    <hr>
+    <div id = "intro" style = "margin-left: 15px; margin-right: 15px;">
+      <h2 style = "color: #5386E4; font-size: 45px;"> What is LESS? </h2>
+      <p style = "font-size: 25px;">LESS, which stands for Leaner Style Sheets, is a style sheet language that implements the use of coding to extend the capabilities of CSS. Essentially, it is like a cross between Python and CSS, so that it is easier to maintain and customize your style sheets.</p>
+    </div>
+    <div id = "install" style = "margin-left: 15px; margin-right: 15px;">
+      <h2 style = "color: #5386E4; font-size: 45px;"> How to Use </h2>
+      <div style = "font-size: 25px;">
+        A CSS preprocessor has two parts: <br>
+        <ol>
+          <li> the language </li>
+          <li> the compiler </li>
+        </ol>
+        <p>The language is the LESS code itself, while the compiler is what turns LESS code into standard CSS. Compilers include <a href = "https://rubygems.org/gems/less/versions/2.6.0" target = "_blank"> Ruby Gem</a>, <a href = "https://codekitapp.com" target = "_blank"> CodeKit</a> (an OS X app), <a href = "http://lesscss.org/usage/" target = "_blank"> less.js</a>, and more.</p>
+        <p>Using less.js is convenient because it essentially works the same way as a CSS stylesheet.</p>
+        <div class = "card" style = "background-color: #F5F5F5; width: 90%; margin-left: auto; margin-right: auto;">
+          <div class = "card-body" style = "margin-left: 50px; margin-right: 50px;">
+            <!-- <code class="language-html" data-lang="html"> -->
+            <code class="language-html" data-lang="html">
+              &lt;link rel = "stylesheet/less" type = "text/css" href = "styles.less"/&gt;<br>
+              &lt;script src = "//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js"&gt;&lt;/script&gt;
+            </code>
+          </div>
+        </div>
+        <p style = "margin-top: 10px;">Another script you can use is:</p>
+        <div class = "card" style = "background-color: #F5F5F5; width: 90%; margin-left: auto; margin-right: auto;">
+          <div class = "card-body" style = "margin-left: 50px; margin-right: 50px;">
+            <code class="language-html" data-lang="html">
+              "http://lesscss.googlecode.com/files/less-1.0.30.min.js"
+            </code>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <h2 style = "color: #5386E4; font-size: 45px; margin-left: 15px; margin-right: 15px; margin-top: 10px;"> Features of LESS </h2>
+    <div id = "variables" style = "margin-left: 15px; margin-right: 15px; font-size: 25px;">
+      <h2 style = "color: #33658A; font-size: 40px;"> 1. Variables </h2>
+      <p>Variables are one of the basic features of LESS. When using CSS, it is common to see the same value used multiple times in your stylesheets.
+        Your code can be easier to maintain by using variables to control these values.
+        Variables can be used to substitue for values (like px and numbers), as well as classes and elements.</p>
+      <p><mark>To define a variable in Less, just add a ‘@’ sign before the name of your variable.</mark></p>
+      <div style = "text-align: center; color: #5386E4;"> LESS ---> CSS </div>
+      <div class = "row" style = "margin-left: 15px; margin-right: 15px; font-size: 20px;">
+        <xmp style = "display: block; border: 1px solid black; background-color: #eee; width: 50%;">
+  @default-color: #428bca; //sea blue
+  .h1 {
+    color: @default-color;
+  }
+  .h2 {
+    color: red;
+    background-color: @default-color;
+  }
+        </xmp>
+        <xmp style = "display: block; border: 1px solid black; background-color: #eee; width: 50%;">
+  .h1 {
+    color: #428bca;
+  }
+  .h2 {
+    color: red;
+    background-color: #428bca;
+  }
+        </xmp>
+      </div>
+      <p style = "margin-top: 15px;"><mark>Properties can also be used as variables by using a ‘$’ sign before the name.</mark></p>
+      <div style = "text-align: center; color: #5386E4;"> LESS ---> CSS </div>
+      <div class = "row" style = "margin-left: 15px; margin-right: 15px; font-size: 20px;">
+        <xmp style = "display: block; border: 1px solid black; background-color: #eee; width: 50%;">
+  .h1 {
+    color: #EFEFEF;
+    background-color: $color;
+  }
+        </xmp>
+        <xmp style = "display: block; border: 1px solid black; background-color: #eee; width: 50%;">
+  .h1 {
+    color: #EFEFEF;
+    background-color: #EFEFEF;
+  }
+        </xmp>
+      </div>
+    </div>
+    <div id = "nesting" style = "margin-left: 15px; margin-right: 15px; font-size: 25px;">
+      <h2 style = "color: #33658A; font-size: 40px;"> 2. Nesting </h2>
+      <p>Before LESS, every rule in CSS had to be written separately out, even if they were for parts of the same class or element.
+        For example, if a header has multiple parts, you would have to write out its properties like so:</p>
+      <xmp style = "display: block; border: 1px solid black; background-color: #eee; width: 40%; margin-left: auto; margin-right: auto; font-size: 20px;">
+  #header {
+    color: red;
+  }
+  #header .navigation {
+    font-size: 20px;
+    color: blue;
+  }
+  #header .logo {
+    width: 300px;
+    color: yellow;
+  }
+      </xmp>
+      <p style = "margin-top: 15px;">However, with LESS, <mark>you can nest these separate rules inside the brackets for the parent element</mark>. This makes the code easier to read and more organized.
+      Using the same example above, the code would now look like this:</p>
+      <xmp style = "display: block; border: 1px solid black; background-color: #eee; width: 40%; margin-left: auto; margin-right: auto; overflow: auto; font-size: 20px;">
+  #header {
+    color: red;
+    .navigation {
+      font-size: 20px;
+      color: blue;
+    }
+    .logo {
+      width: 300px;
+      color: yellow;
+    }
+  }
+      </xmp>
+      <p><mark>To reference the parent class, you can use the ‘&’ symbol inside the class.</mark> In this example, -submit and -cancel are two parent classes that each have a button class: </p>
+      <div style = "text-align: center; color: #5386E4;"> LESS ---> CSS </div>
+      <div class = "row" style = "margin-left: 15px; margin-right: 15px; font-size: 20px;">
+        <xmp style = "display: block; border: 1px solid black; background-color: #eee; width: 50%; margin-left: auto; margin-right: auto; overflow: auto;">
+  .button {
+    &-submit {
+      background-image: url("s.png");
+    }
+    &-cancel {
+      background-image: url("c.png");
+    }
+  }
+        </xmp>
+        <xmp style = "display: block; border: 1px solid black; background-color: #eee; width: 50%; margin-left: auto; margin-right: auto; overflow: auto;">
+  .button-submit {
+    background-image: url("s.png");
+  }
+  .button-cancel {
+    background-image: url("c.png");
+  }
+        </xmp>
+      </div>
+    </div>
+
+    <div id = "mixins" style = "margin-left: 15px; margin-right: 15px; font-size: 25px;">
+      <h2 style = "color: #33658A; font-size: 40px;"> 3. Mixins </h2>
+      <p>A mixin is a group of CSS properties or elements. By grouping them together, <mark>you can include a bunch of properties from one rule-set
+        into another rule set.</mark> Ids and classes can be considered mixins. For example, we have the class .default and we want to use its properties for other classes: </p>
+      <xmp style = "display: block; border: 1px solid black; background-color: #eee; width: 40%; margin-left: auto; margin-right: auto; overflow: auto; font-size: 20px;">
+  .default {
+    color: red;
+    border-top: 10px solid black;
+  }
+      </xmp>
+      <p><mark>To include the properties of .default in other classes, simply call it like you would for a function.*</mark> Now the #header div will have all the properties of the .default mixin.</p>
+      <div style = "text-align: center; color: #5386E4;"> LESS ---> CSS </div>
+      <div class = "row" style = "margin-left: 15px; margin-right: 15px; font-size: 20px;">
+        <xmp style = "display: block; border: 1px solid black; background-color: #eee; width: 50%; margin-left: auto; margin-right: auto; overflow: auto;">
+  .default {
+    color: red;
+    border-top: 10px solid black;
+  }
+
+  #header {
+    .default();
+    background-color: blue;
+  }
+        </xmp>
+        <xmp style = "display: block; border: 1px solid black; background-color: #eee; width: 50%; margin-left: auto; margin-right: auto; overflow: auto;">
+  #header {
+    color: red;
+    border-top: 10px solid black;
+    background-color: blue;
+  }
+        </xmp>
+      </div>
+      <p style = "font-size: 20px; color: red;">*Currently, the parentheses after the mixin call are optional.<p>
+      <p>If you don't want to use all of a mixin's properties for a class, <mark>you can call on specific properties or variables of a mixin by treating it like a dictionary key and value pair.</mark><p>
+      <div class = "row" style = "margin-left: 15px; margin-right: 15px; font-size: 20px;">
+        <xmp style = "display: block; border: 1px solid black; background-color: #eee; width: 50%; margin-left: auto; margin-right: auto; overflow: auto;">
+  #default {
+    @default-color: orange;
+    background-color: blue;
+    font-size: 10px;
+    border-top: 10px solid black;
+  }
+
+  .h1 {
+    color: #default[@default-color];
+    background-color: #default[background-color];
+    font-size: 20px;
+  }
+        </xmp>
+        <xmp style = "display: block; border: 1px solid black; background-color: #eee; width: 50%; margin-left: auto; margin-right: auto; overflow: auto;">
+  .h1 {
+    color: orange;
+    background-color: blue;
+    font-size: 20px;
+  }
+        </xmp>
+      </div>
+    </div>
+
+
+    <div id = "parametric" style = "margin-left: 15px; margin-right: 15px; font-size: 25px;">
+      <h2 style = "color: #33658A; font-size: 40px;"> 4. Parametric Mixins </h2>
+      <p>Continuing with the analogy of mixins being like functions, LESS allows you to pass variables through mixins like a function. These are called parametric mixins. You can choose to have a default paramter value or not.<p>
+      <xmp style = "display: block; border: 1px solid black; background-color: #eee; width: 50%; margin-left: auto; margin-right: auto; overflow: auto; font-size: 20px;">
+  //parametric mixin without default value
+  .border-radius(@radius) {
+    -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+    border-radius: @radius;
+  }
+
+  //parameter radius has default value of 5px
+  .rounder-corners(@radius: 5px) {
+    -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+    border-radius: @radius;
+  }
+      </xmp>
+      <p>When using the parametric mixin, you put your parameter value in as you call it, just like a function.</p>
+      <div style = "text-align: center; color: #5386E4;"> LESS ---> CSS </div>
+      <div class = "row" style = "margin-left: 15px; margin-right: 15px; font-size: 20px;">
+        <xmp style = "display: block; border: 1px solid black; background-color: #eee; width: 50%; margin-left: auto; margin-right: auto; overflow: auto;">
+  //parametric mixin without default value
+  .border-radius(@radius) {
+    -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+    border-radius: @radius;
+  }
+
+  .header {
+    .border-radius(4px);
+    color: red;
+  }
+        </xmp>
+        <xmp style = "display: block; border: 1px solid black; background-color: #eee; width: 50%; margin-left: auto; margin-right: auto; overflow: auto;">
+  .header {
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    color: red;
+  }
+        </xmp>
+      </div>
+
+      <p>In addition, you are able to define multiple mixins with the same name and number of parameters. If you use the mixin with one parameter, then properties of all mixins with that name and exactly one <strong>mandatory</strong> parameter will be used:<p>
+      <div style = "text-align: center; color: #5386E4;"> LESS ---> CSS </div>
+      <div class = "row" style = "margin-left: 15px; margin-right: 15px; font-size: 20px;">
+        <xmp style = "display: block; border: 1px solid black; background-color: #eee; width: 50%; margin-left: auto; margin-right: auto; overflow: auto;">
+  //first mixin
+  .mixin(@color) {
+    color-1: @color;
+  }
+
+  //second mixin
+  .mixin(@color, @padding: 2px) {
+    color-2: @color;
+    padding-2: @padding;
+  }
+
+  //third mixin
+  .mixin(@color, @padding, @margin: 2px) {
+    color-3: @color;
+    padding-2: @padding;
+    margin: @margin;
+  }
+
+  .somediv {
+    .mixin(#00800);
+  }
+        </xmp>
+        <xmp style = "display: block; border: 1px solid black; background-color: #eee; width: 50%; margin-left: auto; margin-right: auto; overflow: auto;">
+  .somediv {
+    color-1: #00800;
+    color-2: #00800;
+    padding-2: 2px;
+  }
+        </xmp>
+      </div>
+        <p>In the above example, using the call .mixin(#00800) in .somediv allowed it to obtain properties from the first and second mixins (color-1, color-2, and padding-2). This works because,
+          even though the two mixins don't have the same number of parameters, in the second mixin, @padding has a default value so it is not a mandatory parameter. Since the first and second mixin
+          both have one mandatory parameter and the function call .mixin(#00800) satisfies them both, .somediv inherits properties from both mixins. Notice that this doesn't work for the third mixin
+          because it requires two mandatory parameters, @color and @padding, and the function call only provides one parameter value.
+    </div>
+
+    <div id = "merge" style = "margin-left: 15px; margin-right: 15px; font-size: 25px;">
+      <h2 style = "color: #33658A; font-size: 40px;"> 5. Merge </h2>
+      <p>In Less, the merge feature allows for aggregating values from multiple properties into a comma or space separated list under a single property. In the example below, the .myclass wants to merge the transform properties called in the mixin with its own. <mark>By using the "+_" sign after both properties (inside the mixin and the separate class), the transform properties are merged together with spaces.</mark></p>
+      <div style = "text-align: center; color: #5386E4;"> LESS ---> CSS </div>
+      <div class = "row" style = "margin-left: 15px; margin-right: 15px; font-size: 20px;">
+        <xmp style = "display: block; border: 1px solid black; background-color: #eee; width: 50%; margin-left: auto; margin-right: auto; overflow: auto;">
+  .mixin() {
+    transform+_: scale(2);
+  }
+
+  .myclass {
+    .mixin();
+    transform+_: rotate(15deg);
+  }
+        </xmp>
+        <xmp style = "display: block; border: 1px solid black; background-color: #eee; width: 50%; margin-left: auto; margin-right: auto; overflow: auto;">
+  .myclass {
+    transform+_: scale(2) rotate(15deg);
+  }
+        </xmp>
+      </div>
+      <p><mark>If you want to merge using commas, use the "+" sign instead of the "+_".</mark></p>
+    </div>
+
+    <div id = "logic" style = "margin-left: 15px; margin-right: 15px; font-size: 25px;">
+      <h2 style = "color: #33658A; font-size: 40px;"> 6. Logical Functions </h2>
+      <p>LESS supports a range of functions: logical, mathematical, string, etc. The first that we will introduce is the logical functions.<br><br>The first function is the if() function: <mark>if(condition, value1, value2): returns value1 if condition is true, else returns value2.</mark></p>
+      <div style = "text-align: center; color: #5386E4;"> EXAMPLE ---> RESULT </div>
+      <div class = "row" style = "margin-left: 15px; margin-right: 15px; font-size: 20px;">
+        <xmp style = "display: block; border: 1px solid black; background-color: #eee; width: 50%; margin-left: auto; margin-right: auto; overflow: auto;">
+  @some: foo;
+
+  div {
+    margin: if((2 > 1), 0, 3px);
+    color:  if((iscolor(@some)), darken(@some, 10%), black);
+  }
+        </xmp>
+        <xmp style = "display: block; border: 1px solid black; background-color: #eee; width: 50%; margin-left: auto; margin-right: auto; overflow: auto;">
+  div {
+    margin: 0;
+    color:  black;
+  }
+        </xmp>
+      </div>
+      <p>The second logical function is the <mark>boolean(condition) fucntion, which takes a condition and evluates it to true and false.</mark><p>
+      <div style = "text-align: center; color: #5386E4;"> EXAMPLE ---> RESULT </div>
+      <div class = "row" style = "margin-left: 15px; margin-right: 15px; font-size: 20px;">
+        <xmp style = "display: block; border: 1px solid black; background-color: #eee; width: 50%; margin-left: auto; margin-right: auto; overflow: auto;">
+  @bg: black;
+  @bg-light: boolean(3 > 2);
+
+  div {
+    background: @bg;
+    color: if(@bg-light, black, white);
+  }
+        </xmp>
+        <xmp style = "display: block; border: 1px solid black; background-color: #eee; width: 50%; margin-left: auto; margin-right: auto; overflow: auto;">
+  div {
+    background: black;
+    color: white;
+  }
+        </xmp>
+      </div>
+    </div>
+
+    <div id = "math" style = "margin-left: 15px; margin-right: 15px; font-size: 25px;">
+      <h2 style = "color: #33658A; font-size: 40px;"> 7. Math Function </h2>
+      <p>Next, we have the math functions. Less supports a multitude of mathematical procedures ranging from ceiling, floor, percentage, etc. Below we will list the most useful ones, along with their functions if you are not familiar with them.</p>
+      <ul>
+        <li><b>Ceiling</b> - rounds up to nearest integer</li>
+        <li><b>Floor</b> - rounds down to nearest integer</li>
+        <li><b>Percentage</b> - converts point to percentage string</li>
+        <li><b>Rounding numbers</b> - rounds numbers to specified decimal point</li>
+        <li><b>Absolute value</b> - gets the absolute value of a number</li>
+        <li><b>Square root</b> - gets sqrt of a number</li>
+        <li><b>Trigonometric Functions</b> - sin, cos, tan…</li>
+        <li><b>Pi</b></li>
+      </ul>
+      <p>Since this is only an introduction to Less, we will just show you two types of functions. You can always go to the Less website to learn more about the functions that Less supports.</p>
+    </div>
+
+    <div id = "advantages of less" style = "margin-left: 15px; margin-right: 15px; font-size: 25px;">
+      <h2 style = "color: #5386E4; font-size: 45px;"> Advantages of LESS </h2>
+      <p>There are many advantages of LESS:
+        <ul>
+            <li>LESS supports creating cleaner, cross-browser friendly CSS faster and easier.</li>
+            <li>LESS is designed in JavaScript and also created to be used in live, which compiles faster than other CSS preprocessors.</li>
+            <li>LESS keeps your code in modular way which is really important by making it readable and easily changeable.</li>
+            <li>Faster maintenance can be achieved by the use of LESS variables.</li>
+            <li>LESS enables you to write better and well-organized code by using nesting.</li>
+            <li>LESS enables you to reuse the whole classes easily by referencing them in your rule sets.</li>
+            <li>LESS provides the use of operations that makes coding faster and saves time.</li>
+       </ul>
+    </div>
+    <div id = "advantages of less" style = "margin-left: 15px; margin-right: 15px; font-size: 25px;">
+      <h2 style = "color: #5386E4; font-size: 45px;"> Conclusion </h2>
+      <p>You made it to the end! Thank you so much for tuning in to Team Eggcellent's <b>Introduction to Less</b> website. Since this was only an introduction, we showcased what we believed to be some of Less's best features and usages. We hope that this was a useful resource for getting familiar with the Less language and seeing the functionality of this style sheet language.<br>
+      <br><b>If you are ever interested in learning more, feel free to check the <a href="http://lesscss.org/">official Less website<a>.</b>
+      <br><br> Thank you so much again!</p>
+    </font>
+    <br><br><br><br><br>
+  </body>
+</html>

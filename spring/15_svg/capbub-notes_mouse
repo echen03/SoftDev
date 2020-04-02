@@ -1,0 +1,11 @@
+Events #1:
+when you press on a cell, it shows on the page an alert message saying, "This page says" then the what you pressed inside the cell.
+
+Events #2:
+When you press on a cell, it alerts you on the cell you press, then the html of the row of the cell you clicked, and lastly an html the entire body.
+
+Events #3:
+When you press on a cell, it alerts you on the html of the body, then the value of the cell, and lastly the html of the row.
+
+Events #4:
+When you press on a cell, it alerts the html of the body, then the html of the row, and finally the value of the cell.

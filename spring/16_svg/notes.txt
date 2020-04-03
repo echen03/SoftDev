@@ -1,0 +1,8 @@
+00:
+
+it shows a horizontal bar graph with the width labeled inside each bar.
+
+01:
+
+the first four steps, which essentially initialize data returns undefined in the console and does nothing to the site.
+However once, you append the data, the bars show up however they are all of same length. The next step changes the width according to the data. Lastly, the text of each bar is its width which is done by the last step.

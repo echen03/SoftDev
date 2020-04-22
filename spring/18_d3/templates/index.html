@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>title</title>
+  <style>
+    * {
+      margin: 0;
+    }
+
+    #container {
+      display: flex;
+      justify-content: center;
+    }
+
+    button {
+      width: 100%;
+
+    }
+
+    #start, #render {
+      background-color: lightgreen;
+    }
+
+    #end {
+      background-color: lightcoral;
+    }
+
+    #displayed-year {
+      background-color: yellow;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+<h1>Initial Claims (USA) <a href="https://fred.stlouisfed.org/series/ICSA" target="_blank">Source</a></h1>
+<p>
+  William Cao, Henry Liu, Ethan Chen -- HEW <br/>
+  SoftDev pd1 <br/>
+  K18 -- Come Up For Air <br/>
+  2020-04-22 <br/>
+</p>
+<button id="render" disabled>Please wait for data to finish loading</button>
+<h2 id="displayed-year">Looking from ____ to ____</h2>
+<button id="next-year">View next year</button>
+<small>It overlaps then moves for comparison of previous year</small>
+<h4>Animation</h4>
+<button id="start">Start Animation!</button>
+<h4>Control</h4>
+<button id="end">Reset Graph</button>
+<div id="container"></div>
+
+<script src="http://d3js.org/d3.v5.min.js" charset="utf-8"></script>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
